@@ -8,4 +8,5 @@ add_subdirectory(ThirdParty/DesyncCompare/src)
 
 add_executable(DesyncConsole main.cpp)
 
+target_include_directories(DesyncConsole PUBLIC ThirdParty/DesyncCompare/src)
 target_link_libraries(DesyncConsole DesyncCompare)
