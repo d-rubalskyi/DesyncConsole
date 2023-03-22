@@ -1,13 +1,18 @@
 #include <cstdio>
+#include <filesystem>
 
 #include "Cluster.h"
+#include "ComparisonResult.h"
 
 int main()
 {
+    std::filesystem::path CurrentWorkingDirectory = std::filesystem::current_path();
+    std::string SearchFolder = CurrentWorkingDirectory.string();
+
     Cluster NodeCluster;
     ComparisonResult Results;
 
-    NodeCluster.LoadNodeData();
+    NodeCluster.LoadNodeData(SearchFolder);
     NodeCluster.CompareNodeData(Results);
 
     Results.Print();
